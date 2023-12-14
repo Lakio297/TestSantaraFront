@@ -1,0 +1,26 @@
+
+nav {
+  flex-direction: column;
+  align-items:stretch;
+  background-color: #e6ccff; /* Color lila claro */
+  padding: 15px;
+  text-align: left;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333; /* Color del texto */
+  margin-right: 15px; /* Espacio entre los enlaces */
+  font-size: 18px;
+  display: inline-block; /* Hace que los enlaces estén en línea */
+}
+
+nav a:hover {
+  color: #6600cc; /* Cambiar el color al pasar el mouse */
+}
+

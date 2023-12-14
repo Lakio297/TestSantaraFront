@@ -1,0 +1,73 @@
+/* crear-empresa.component.css */
+div {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h2 {
+  color: #333; /* Color del texto */
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333; /* Color del texto */
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+img {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 200px;
+}
+
+/* Alineación de botones debajo del formulario */
+.botones {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.guardar {
+  background-color: #00a3a0; /* Color del botón Guardar */
+  color: white;
+}
+
+button.descartar {
+  background-color: white; /* Fondo blanco */
+  color: #00a3a0; /* Color de texto azul */
+}
+
+button:hover {
+  background-color: #0056b3; /* Cambiar el color al pasar el mouse */
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

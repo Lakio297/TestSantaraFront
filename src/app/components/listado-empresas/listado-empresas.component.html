@@ -1,0 +1,18 @@
+<!-- listado-empresas.component.html -->
+<div class="listado-empresas">
+  <h2>Listado de Empresas</h2>
+
+  <ul class="empresas-lista">
+    <li *ngFor="let empresa of empresas">
+
+      <div class="informacion-empresa">
+        <h3>{{ empresa.nombre }}</h3>
+        <p>Registro: {{ empresa.registro }}</p>
+        <p>Moneda: {{ empresa.moneda }}</p>
+        <a [routerLink]="['/ver', empresa.id]">Ver</a>
+        <p></p>
+        <a (click)="eliminarEmpresa(empresa.id)">Eliminar</a>
+      </div>
+    </li>
+  </ul>
+</div>

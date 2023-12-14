@@ -1,0 +1,148 @@
+<!-- crear-empresa.component.html -->
+<div>
+  <h2>Crear Empresa</h2>
+  <div *ngIf="mensajeExito" class="mensaje-exito">
+    {{ mensajeExito }}
+  </div>
+
+    <!-- Agregar un área de mensajes de error -->
+    <div *ngIf="empresaForm.invalid && empresaForm.touched" class="error-message">
+      <p *ngIf="empresaForm.get('nombre')?.invalid && empresaForm.get('nombre')?.touched">
+        Por favor, completa el nombre de la compañía.
+      </p>
+      <p *ngIf="empresaForm.get('provincia')?.invalid && empresaForm.get('provincia')?.touched">
+        Por favor, completa la provincia.
+      </p>
+      <p *ngIf="empresaForm.get('pais')?.invalid && empresaForm.get('pais')?.touched">
+        Por favor, completa el país.
+      </p>
+      <p *ngIf="empresaForm.get('rfc')?.invalid && empresaForm.get('rfc')?.touched">
+        Por favor, completa el RFC.
+      </p>
+      <p *ngIf="empresaForm.get('registro')?.invalid && empresaForm.get('registro')?.touched">
+        Por favor, completa el registro de la compañía.
+      </p>
+      <p *ngIf="empresaForm.get('moneda')?.invalid && empresaForm.get('moneda')?.touched">
+        Por favor, selecciona la moneda.
+      </p>
+      <p *ngIf="empresaForm.get('correo')?.invalid && empresaForm.get('correo')?.touched">
+        Por favor, completa el correo.
+      </p>
+      <p *ngIf="empresaForm.get('logo')?.invalid && empresaForm.get('logo')?.touched">
+        Por favor, adjunta un logo.
+      </p>
+    </div>
+
+  <form [formGroup]="empresaForm">
+
+    <!-- Botones -->
+    <div>
+      <button type="button" class="descartar" (click)="descartarCambios()">DESCARTAR</button>
+      <button type="button" class="guardar" (click)="guardarEmpresa()">GUARDAR</button>
+    </div>
+
+    <!-- Nombre de la compañía -->
+    <div>
+      <label for="nombreEmpresa">Nombre de la compañía:</label>
+      <input type="text" id="nombreEmpresa" formControlName="nombre" required [ngClass]="{'error': empresaForm.get('nombre')?.invalid && empresaForm.get('nombre')?.touched}">
+      <div *ngIf="empresaForm.get('nombre')?.hasError('required') && empresaForm.get('nombre')?.touched" class="error-message">
+        Por favor, ingresa el nombre de la compañía.
+      </div>
+    </div>
+    <!-- Your Logo -->
+    <div>
+      <label for="logo">Su Logo:</label>
+      <input type="file" id="logo" (change)="onLogoSelected($event)" formControlName="logo" required>
+    </div>
+
+    <div *ngIf="previewImageUrl">
+      <label>Vista Previa del Logo:</label>
+      <img [src]="previewImageUrl" alt="Vista previa del logo" style="max-width: 100%">
+    </div>
+
+    <!-- Información General -->
+    <h3>Información General</h3>
+
+    <!-- Dirección Completa -->
+    <div>
+      <label>Dirección completa:</label>
+      <input type="text" placeholder="Nombre de la calle" formControlName="direccionCalle">
+      <input type="text" placeholder="No. exterior" formControlName="numeroExterior">
+      <input type="text" placeholder="No. de puerta" formControlName="numeroPuerta">
+      <input type="text" placeholder="Colonia (calle 2)" formControlName="colonia">
+      <input type="text" placeholder="Ciudad" formControlName="ciudad">
+      <div>
+        <label for="provincia">Provincia:</label>
+        <select id="provincia" formControlName="provincia" required>
+          <option value="" disabled selected>Selecciona una provincia</option>
+          <!-- Opciones de estados -->
+          <option value="estado1">Estado 1</option>
+          <option value="estado2">Estado 2</option>
+          <!-- Agregar más estados según sea necesario -->
+        </select>
+        <div *ngIf="empresaForm.get('provincia')?.hasError('required') && empresaForm.get('provincia')?.touched" class="error-message">
+          Por favor, selecciona una provincia.
+        </div>
+      </div>
+      <input type="number" placeholder="C.P." formControlName="codigoPostal">
+      <div>
+        <label for="pais">País:</label>
+        <select id="pais" formControlName="pais" required>
+          <option value="" disabled selected>Selecciona un país</option>
+          <!-- Opciones de países -->
+          <option value="mexico">México</option>
+          <option value="otro">Otro país</option>
+          <!-- Agregar más países según sea necesario -->
+        </select>
+        <div *ngIf="empresaForm.get('pais')?.hasError('required') && empresaForm.get('pais')?.touched" class="error-message">
+          Por favor, selecciona un país.
+        </div>
+      </div>
+    </div>
+
+    <!-- Otros campos -->
+    <div>
+      <label for="telefono">Teléfono:</label>
+      <input type="text" id="telefono" formControlName="telefono">
+    </div>
+
+    <div>
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" formControlName="correo">
+    </div>
+
+    <div>
+      <label for="sitioWeb">Sitio web:</label>
+      <input type="text" id="sitioWeb" formControlName="sitioWeb">
+    </div>
+
+    <div>
+      <label for="rfc">RFC:</label>
+      <input type="text" id="rfc" formControlName="rfc" required [ngClass]="{'error': empresaForm.get('rfc')?.invalid && empresaForm.get('rfc')?.touched}">
+      <div *ngIf="empresaForm.get('rfc')?.hasError('required') && empresaForm.get('rfc')?.touched" class="error-message">
+        Por favor, ingresa el RFC.
+      </div>
+    </div>
+
+    <div>
+      <label for="registro">Registro de la compañía:</label>
+      <input type="text" id="registro" formControlName="registro" required [ngClass]="{'error': empresaForm.get('registro')?.invalid && empresaForm.get('registro')?.touched}">
+      <div *ngIf="empresaForm.get('registro')?.hasError('required') && empresaForm.get('registro')?.touched" class="error-message">
+        Por favor, ingresa el registro de la compañía.
+      </div>
+    </div>
+    <div>
+      <label for="moneda">Moneda:</label>
+      <select id="moneda" formControlName="moneda" required>
+        <option value="" disabled selected>Selecciona una moneda</option>
+        <option value="MXN">MXN</option>
+        <option value="USD">USD</option>
+      </select>
+      <div *ngIf="empresaForm.get('moneda')?.hasError('required') && empresaForm.get('moneda')?.touched" class="error-message">
+        Por favor, selecciona una moneda.
+      </div>
+    </div>
+
+
+  </form>
+</div>

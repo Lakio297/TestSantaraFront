@@ -1,0 +1,34 @@
+/* listado-empresas.component.css */
+.listado-empresas {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.empresas-lista {
+  list-style: none;
+  padding: 0;
+}
+
+.empresas-lista li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.logo-empresa {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.informacion-empresa {
+  flex: 1;
+}
+
+h2 {
+  color: #333;
+}

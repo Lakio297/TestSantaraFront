@@ -1,0 +1,25 @@
+div {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  color: #333; /* Color del texto */
+}
+
+p {
+  color: #666; /* Color del texto */
+}
+
+a {
+  color: #007bff; /* Color del enlace */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline; /* Subrayar al pasar el mouse */
+}

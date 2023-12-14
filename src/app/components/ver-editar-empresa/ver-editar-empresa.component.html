@@ -1,0 +1,35 @@
+<!-- ver-editar-empresa.component.html -->
+<div class="empresa-details">
+  <h2>{{ empresa?.nombre }}</h2>
+
+  <div class="details-section">
+    <h3>Información General</h3>
+    <p>Registro: {{ empresa?.registro }}</p>
+    <p>RFC: {{ empresa?.rfc }}</p>
+    <p>Moneda: {{ empresa?.moneda }}</p>
+  </div>
+
+  <div class="details-section">
+    <h3>Dirección</h3>
+    <p>Ciudad: {{ empresa?.ciudad }}</p>
+    <p>Provincia: {{ empresa?.provincia }}</p>
+    <p>Código Postal: {{ empresa?.codigoPostal }}</p>
+    <p>Colonia: {{ empresa?.colonia }}</p>
+    <p>Dirección Calle: {{ empresa?.direccionCalle }}</p>
+    <p>Número Exterior: {{ empresa?.numeroExterior }}</p>
+    <p>Número Puerta: {{ empresa?.numeroPuerta }}</p>
+  </div>
+
+  <div class="details-section">
+    <h3>Contacto</h3>
+    <p>Correo: {{ empresa?.correo }}</p>
+    <p>Teléfono: {{ empresa?.telefono }}</p>
+    <p>Sitio Web: {{ empresa?.sitioWeb }}</p>
+  </div>
+
+  <div class="logo-marco">
+    <img [src]="imagenURL" alt="{{ empresa?.nombre }} Logo" class="logo-empresa">
+  </div>
+
+  <button (click)="editarEmpresa()">Editar</button>
+</div>

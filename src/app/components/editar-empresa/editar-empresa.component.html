@@ -1,0 +1,89 @@
+<div>
+  <h2>Editar Empresa</h2>
+
+  <form [formGroup]="empresaForm">
+
+    <!-- Botón para aplicar la edición -->
+    <button (click)="aplicarEdicion()">Aplicar Edición</button>
+
+    <!-- Nombre de la compañía -->
+    <div>
+      <label for="nombreEmpresa">Nombre de la compañía:</label>
+      <input type="text" id="nombreEmpresa" formControlName="nombre" required [ngClass]="{'error': empresaForm.get('nombre')?.invalid && empresaForm.get('nombre')?.touched}">
+    </div>
+
+    <!-- Your Logo -->
+    <div>
+      <label for="logo">Su Logo:</label>
+      <input type="file" id="logo" (change)="onLogoSelected($event)" formControlName="logo" required>
+    </div>
+
+    <div *ngIf="previewImageUrl">
+      <label>Vista Previa del Logo:</label>
+      <img [src]="previewImageUrl" alt="Vista previa del logo" style="max-width: 100%">
+    </div>
+
+    <!-- Información General -->
+    <h3>Información General</h3>
+
+    <!-- Dirección Completa -->
+    <div>
+      <label>Dirección completa:</label>
+      <input type="text" placeholder="Nombre de la calle" formControlName="direccionCalle">
+      <input type="text" placeholder="No. exterior" formControlName="numeroExterior">
+      <input type="text" placeholder="No. de puerta" formControlName="numeroPuerta">
+      <input type="text" placeholder="Colonia (calle 2)" formControlName="colonia">
+      <input type="text" placeholder="Ciudad" formControlName="ciudad">
+      <label for="provincia">Provincia:</label>
+      <select id="provincia" formControlName="provincia">
+        <!-- Opciones de estados -->
+        <option value="estado1">Estado 1</option>
+        <option value="estado2">Estado 2</option>
+        <!-- Agregar más estados según sea necesario -->
+      </select>
+      <input type="number" placeholder="C.P." formControlName="codigoPostal">
+      <label for="pais">País:</label>
+      <select id="pais" formControlName="pais">
+        <!-- Opciones de países -->
+        <option value="mexico">México</option>
+        <option value="otro">Otro país</option>
+        <!-- Agregar más países según sea necesario -->
+      </select>
+    </div>
+
+    <!-- Otros campos -->
+    <div>
+      <label for="telefono">Teléfono:</label>
+      <input type="text" id="telefono" formControlName="telefono">
+    </div>
+
+    <div>
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" formControlName="correo">
+    </div>
+
+    <div>
+      <label for="sitioWeb">Sitio web:</label>
+      <input type="text" id="sitioWeb" formControlName="sitioWeb">
+    </div>
+
+    <div>
+      <label for="rfc">RFC:</label>
+      <input type="text" id="rfc" formControlName="rfc">
+    </div>
+
+    <div>
+      <label for="registro">Registro de la compañía:</label>
+      <input type="text" id="registro" formControlName="registro">
+    </div>
+
+    <div>
+      <label for="moneda">Moneda:</label>
+      <select id="moneda" formControlName="moneda">
+        <option value="MXN">MXN</option>
+        <option value="USD">USD</option>
+      </select>
+    </div>
+
+  </form>
+</div>
